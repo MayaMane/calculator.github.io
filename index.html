@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Calculator</title>
+
+    <script>
+        function take_input(val) {
+            document.getElementById("input_data").value += val
+        }
+
+        function solve() {
+            let x = document.getElementById("input_data").value
+            let y = eval(x)
+            document.getElementById("input_data").value = y;
+        }
+
+        function del1() {
+            let v = document.getElementById("input_data").value;
+            if (v.length > 0) {
+                v = v.substring(0, v.length - 1);
+                document.getElementById("input_data").value = v;
+            }
+        }
+
+        function clear1() {
+            let current = "";
+            document.getElementById("input_data").value = current;
+        }
+
+        function square() {
+            let x = document.getElementById("input_data").value
+            let s = x * x;
+            document.getElementById("input_data").value = s;
+        }
+
+        function cube() {
+            let x = document.getElementById("input_data").value
+            let s = x * x * x;
+            document.getElementById("input_data").value = s;
+        }
+
+        function sqrt() {
+            let x = document.getElementById("input_data").value
+            let s = Math.sqrt(x);
+            document.getElementById("input_data").value = s;
+        }
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid grey;
+        }
+
+        tr,
+        td {
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-top: 4px;
+        }
+
+        .bottom td {
+            padding-bottom: 10px;
+        }
+
+        .left {
+            padding-left: 10px;
+        }
+
+        .right {
+            padding-right: 10px;
+        }
+
+        .p {
+            text-align: center;
+        }
+
+        input[type="button"] {
+            color: black;
+            width: 100%;
+            background-color: rgba(241, 241, 241, 0.986);
+            border: 1px solid grey;
+            padding: 4px 10px;
+        }
+
+        input[type="text"] {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: right;
+            border: 1px solid grey;
+            padding: 3px;
+            width: 94%;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <p>Online Calculator</p>
+        <table>
+            <tr>
+                <td colspan="5" class="left"><input type="text" id="input_data"></td>
+            </tr>
+            <tr>
+                <td class="left"><input type="button" value="1" onclick="take_input('1')"> </td>
+                <td><input type="button" value="2" onclick="take_input('2')"> </td>
+                <td><input type="button" value="3" onclick="take_input('3')"> </td>
+                <td><input type="button" value="+" onclick="take_input('+')"> </td>
+                <td class="right"><input type="button" value="Del" onclick="del1()"> </td>
+            </tr>
+            <tr>
+                <td class="left"><input type="button" value="4" onclick="take_input('4')" /> </td>
+                <td><input type="button" value="5" onclick="take_input('5')" /> </td>
+                <td><input type="button" value="6" onclick="take_input('6')" /> </td>
+                <td><input type="button" value="-" onclick="take_input('-')" /> </td>
+                <td class="right"><input type="button" value="x^2" onclick="square()"> </td>
+            </tr>
+            <tr>
+                <td class="left"><input type="button" value="7" onclick="take_input('7')"> </td>
+                <td><input type="button" value="8" onclick="take_input('8')"> </td>
+                <td><input type="button" value="9" onclick="take_input('9')"> </td>
+                <td><input type="button" value="*" onclick="take_input('*')"> </td>
+                <td class="right"><input type="button" value="x^3" onclick="cube()"> </td>
+            </tr>
+            <tr class="bottom">
+                <td class="left"><input type="button" id="clear1" value="Clear" onclick="clear1()"> </td>
+                <td><input type="button" value="0" onclick="take_input('0')"> </td>
+                <td><input type="button" value="=" onclick="solve()"> </td>
+                <td><input type="button" value="/" onclick="take_input('/')"> </td>
+                <td class="right"><input type="button" value="Sqrt" onclick="sqrt()"> </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
